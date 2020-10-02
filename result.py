@@ -13,7 +13,7 @@ font = cv2.FONT_HERSHEY_SIMPLEX
 id = 0
 
 # names related to ids: example ==> Marcelo: id=1,  etc
-names = ['None', 'Vladislav']
+names = ['None', 'Vladislav1', '2', 'vlad 3']
 
 # Initialize and start realtime video capture
 cam = cv2.VideoCapture(0)
@@ -44,6 +44,9 @@ while True:
         if (confidence < 100):
             id = names[id]
             confidence = "  {0}%".format(round(100 - confidence))
+            if id == 'Vladislav1' and int(confidence[:-1]) > 50:
+                print('You have succesfully logged in')
+                exit(0)
         else:
             id = "unknown"
             confidence = "  {0}%".format(round(100 - confidence))
